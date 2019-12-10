@@ -99,7 +99,7 @@
   </link>
   
   <!-- macro for walls -->
-  <macro name="wall" params="name xyz sxyz material">
+  <xacro:macro name="wall" params="name xyz sxyz material">
     
     <joint name="${name}_joint" type="fixed">
       <origin rpy="0 0 0" xyz="${xyz}"/>
@@ -129,11 +129,11 @@
       <static>true</static>
       <material>${material}</material>
     </gazebo>
-  </macro>
+  </xacro:macro>
   
   
   <!-- macro for pillars -->
-  <macro name="pillar" params="name xyz r">
+  <xacro:macro name="pillar" params="name xyz r">
     
     <joint name="${name}_joint" type="fixed">
       <origin rpy="0 0 0" xyz="${xyz}"/>
@@ -162,7 +162,7 @@
     <gazebo reference="${name}_link">
       <static>true</static>
     </gazebo>
-  </macro>
+  </xacro:macro>
   
   <gazebo>
     <static>true</static>

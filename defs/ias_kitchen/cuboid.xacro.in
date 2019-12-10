@@ -9,7 +9,7 @@
   <!-- Cuboid -->
   <!--        -->
 
-  <macro name="cuboid" params="block_pos block_rpy">
+  <xacro:macro name="cuboid" params="block_pos block_rpy">
 
     <counter parent="cuboid"
       name="cuboid_top"
@@ -38,6 +38,6 @@
       </visual>
     </link>
 
-  </macro>
+  </xacro:macro>
 
 </robot>

@@ -8,15 +8,15 @@
   <xacro:include filename="@CMAKE_BINARY_DIR@/defs/util_defs.xacro"/>
 <!--  <xacro:include filename="@CMAKE_BINARY_DIR@/defs/ias_kitchen/materials.xacro"/>-->
 
-  <property name="handle_thickness" value="0.015"/>
-  <property name="handle_offset" value="0.045"/>
-  <property name="handle_distance" value="0.055"/>
+  <xacro:property name="handle_thickness" value="0.015"/>
+  <xacro:property name="handle_offset" value="0.045"/>
+  <xacro:property name="handle_distance" value="0.055"/>
 
   <!--                       -->
   <!-- Handle Goemetry Macro -->
   <!--                       -->
 
-  <macro name="handle_geometry" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
+  <xacro:macro name="handle_geometry" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
 
     <joint name="${parent}_${name}_joint" type="fixed">
       <origin rpy="${roll} ${pitch} ${yaw}" xyz="${pos_x+size_x/2} ${pos_y+size_y/2} ${pos_z+size_z/2}"/>
@@ -49,39 +49,39 @@
     </gazebo>
     
 
-  </macro>
+  </xacro:macro>
 
   <!--                         -->
   <!-- Axial Handle SRDF Macro -->
   <!--                         -->
 
-  <macro name="axial_handle_srdf" params="parent name position clearance">
+  <xacro:macro name="axial_handle_srdf" params="parent name position clearance">
 
     <axial_handle name="${parent}_${name}_handle" clearance="${clearance}">
       <position>${position}</position>
       <link name="${name}_link" />
     </axial_handle>
 
-  </macro>
+  </xacro:macro>
 
   <!--                   -->
   <!-- Handle SRDF Macro -->
   <!--                   -->
 
-  <macro name="handle_srdf" params="parent name position clearance">
+  <xacro:macro name="handle_srdf" params="parent name position clearance">
 
     <handle name="${parent}_${name}_handle" clearance="${clearance}">
       <position>${position}</position>
       <link name="${name}_link" />
     </handle>
 
-  </macro>
+  </xacro:macro>
 
   <!--              -->
   <!-- Drawer Macro -->
   <!--              -->
 
-  <macro name="drawer" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
+  <xacro:macro name="drawer" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
     
     <joint name="${parent}_${name}_fixed_joint" type="fixed">
       <origin rpy="${roll} ${pitch} ${yaw}" xyz="${pos_x+size_x-0.01} ${pos_y+size_y/2} ${pos_z+size_z/2}"/>
@@ -260,13 +260,13 @@
       size_x="${handle_thickness}"
       size_y="${size_y - 2*handle_offset}"
       size_z="${handle_thickness}" />
-  </macro>
+  </xacro:macro>
 
   <!--                   -->
   <!-- Drawer SRDF Macro -->
   <!--                   -->
 
-  <macro name="drawer_srdf" params="name size_x size_y size_z">
+  <xacro:macro name="drawer_srdf" params="name size_x size_y size_z">
 
     <contact name="${name}_bottom_link">
       <link name="${name}_bottom_link" object="${name}_bottom_link_0"/>
@@ -290,13 +290,13 @@
       clearance="${handle_thickness}"
       />
 
-  </macro>
+  </xacro:macro>
 
   <!--                       -->
   <!-- Drawer Vertical Macro -->
   <!--                       -->
 
-  <macro name="drawer_vert" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
+  <xacro:macro name="drawer_vert" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
 
     <joint name="${parent}_${name}_fixed_joint" type="fixed">
       <origin rpy="${roll} ${pitch} ${yaw}" xyz="${pos_x+size_x/2} ${pos_y+size_y/2} ${pos_z+size_z/2}"/>
@@ -354,13 +354,13 @@
       size_z="${size_z - 2*handle_offset}"
     />
 
-  </macro>
+  </xacro:macro>
 
   <!--              -->
   <!-- Fridge Macro -->
   <!--              -->
 
-  <macro name="fridge" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
+  <xacro:macro name="fridge" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
 
     <joint name="${parent}_${name}_fixed_joint" type="fixed">
       <origin rpy="${roll} ${pitch} ${yaw}" xyz="${pos_x+size_x} ${pos_y+size_y} ${pos_z+size_z/2}"/>
@@ -418,14 +418,14 @@
       size_z="${size_z - 2*handle_offset}"
     />
 
-  </macro>
+  </xacro:macro>
 
 
   <!--                   -->
   <!-- Fridge SRDF Macro -->
   <!--                   -->
 
-  <macro name="fridge_srdf" params="name">
+  <xacro:macro name="fridge_srdf" params="name">
     <handle_srdf
       name="handle_${name}"
       parent="${name}"
@@ -433,13 +433,13 @@
       clearance="${handle_thickness}"
     />
 
-  </macro>
+  </xacro:macro>
 
   <!--               -->
   <!-- Counter Macro -->
   <!--               -->
 
-  <macro name="counter" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
+  <xacro:macro name="counter" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
 
     <joint name="${parent}_${name}_joint" type="fixed">
       <origin rpy="${roll} ${pitch} ${yaw}" xyz="${pos_x+size_x/2} ${pos_y+size_y/2} ${pos_z+size_z/2}"/>
@@ -475,13 +475,13 @@
       <material value="Ias/KitchenDarkGray" />
     </gazebo>
   
-  </macro>
+  </xacro:macro>
   
   <!--                     -->
   <!-- Color Counter Macro -->
   <!--                     -->
 
-  <macro name="color_counter" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z material">
+  <xacro:macro name="color_counter" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z material">
 
     <joint name="${parent}_${name}_joint" type="fixed">
       <origin rpy="${roll} ${pitch} ${yaw}" xyz="${pos_x+size_x/2} ${pos_y+size_y/2} ${pos_z+size_z/2}"/>
@@ -517,8 +517,8 @@
       <material value="Ias/${material}" />
     </gazebo>
   
-  </macro>
-  <macro name="color_counter_srdf" params="name size_x size_y size_z">
+  </xacro:macro>
+  <xacro:macro name="color_counter_srdf" params="name size_x size_y size_z">
     <contact name="${name}">
       <link name="${name}_link" object="${name}_link_0"/>
       <!-- Box size: size_x * size_y * size_z
@@ -534,13 +534,13 @@
       </shape>
   </contact>
 
-  </macro>
+  </xacro:macro>
 
   <!--                    -->
   <!-- Counter Side Macro -->
   <!--                    -->
 
-  <macro name="counter_side" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
+  <xacro:macro name="counter_side" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
 
     <joint name="${parent}_${name}_joint" type="fixed">
       <origin rpy="${roll} ${pitch} ${yaw}" xyz="${pos_x+size_x/2} ${pos_y+size_y/2} ${pos_z+size_z/2}"/>
@@ -572,13 +572,13 @@
       <material value="Ias/KitchenDarkGray" />
     </gazebo>
   
-  </macro>
+  </xacro:macro>
 
   <!--             -->
   <!-- Rack Macro -->
   <!--             -->
 
-  <macro name="rack" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
+  <xacro:macro name="rack" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
 
     <joint name="${parent}_${name}_joint" type="fixed">
       <origin rpy="${roll} ${pitch} ${yaw}" xyz="${pos_x+size_x/2} ${pos_y+size_y/2} ${pos_z+size_z/2}"/>
@@ -610,13 +610,13 @@
       <material value="Ias/KitchenLightGray" />
     </gazebo>
 
-  </macro>
+  </xacro:macro>
 
   <!--                 -->
   <!-- Rack Side Macro -->
   <!--                 -->
 
-  <macro name="rack_side" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
+  <xacro:macro name="rack_side" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
 
     <joint name="${parent}_${name}_joint" type="fixed">
       <origin rpy="${roll} ${pitch} ${yaw}" xyz="${pos_x+size_x/2} ${pos_y+size_y/2} ${pos_z+size_z/2}"/>
@@ -648,13 +648,13 @@
       <material value="Ias/KitchenDarkGray" />
     </gazebo>
   
-  </macro>
+  </xacro:macro>
 
   <!--                -->
   <!-- Skirting Macro -->
   <!--                -->
 
-  <macro name="skirting" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
+  <xacro:macro name="skirting" params="parent name pos_x pos_y pos_z roll pitch yaw size_x size_y size_z">
 
     <joint name="${parent}_${name}_joint" type="fixed">
       <origin rpy="${roll} ${pitch} ${yaw}" xyz="${pos_x+size_x/2} ${pos_y+size_y/2} ${pos_z+size_z/2}"/>
@@ -686,6 +686,6 @@
       <material value="Ias/KitchenDarkGray" />
     </gazebo>
 
-  </macro>
+  </xacro:macro>
 
 </robot>

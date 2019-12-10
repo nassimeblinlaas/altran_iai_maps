@@ -3,7 +3,7 @@
   
   <xacro:include filename="@CMAKE_BINARY_DIR@/defs/util_defs.xacro"/>  
   
-  <macro name="cnc" params="name parent xyz rpy">
+  <xacro:macro name="cnc" params="name parent xyz rpy">
     
     <link name="${parent}_${name}_cnc_link">    
       <visual>
@@ -30,6 +30,6 @@
       <child link="${parent}_${name}_cnc_link"/>
     </joint>
     
-  </macro>
+  </xacro:macro>
   
 </robot>

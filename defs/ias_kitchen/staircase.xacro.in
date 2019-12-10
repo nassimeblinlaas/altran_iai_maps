@@ -12,7 +12,7 @@
   <!-- Staircase -->
   <!--           -->
 
-  <macro name="staircase" params="name parent s_x s_y s_z material">
+  <xacro:macro name="staircase" params="name parent s_x s_y s_z material">
 
     <color_counter parent="${parent}"
       name="${name}_stair1"
@@ -38,9 +38,9 @@
       material="${material}"
     />
 
-  </macro>
+  </xacro:macro>
 
-  <macro name="staircase_srdf" params="name parent s_x s_y s_z material">
+  <xacro:macro name="staircase_srdf" params="name parent s_x s_y s_z material">
 
     <color_counter_srdf
       name="${name}_stair1"
@@ -57,6 +57,6 @@
       size_x="${s_x}" size_y="${s_y}" size_z="${3 * s_z}"
     />
 
-  </macro>
+  </xacro:macro>
 
 </robot>

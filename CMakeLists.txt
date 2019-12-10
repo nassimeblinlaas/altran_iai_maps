@@ -17,10 +17,9 @@
 cmake_minimum_required(VERSION 2.8)
 
 include(cmake/portability.cmake)
-include(cmake/xacro.cmake)
 project(iai_maps)
 
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS xacro)
 
 catkin_package()
 
@@ -54,14 +53,20 @@ SET(XACRO_SRDF_FILES
   )
 
 foreach(it ${XACRO_FILES})
- GENERATE_URDF_FILE (${it} "urdf")
+  CONFIGURE_FILE(${it}.xacro.in ${it}.xacro @ONLY)
+  SET(URDF_FILENAME ${it}.urdf)
+  XACRO_ADD_XACRO_FILE(${PROJECT_BINARY_DIR}/${it}.xacro ${URDF_FILENAME})
+  LIST(APPEND URDF_FILENAMES ${URDF_FILENAME})
 endforeach(it)
 
 foreach(it ${XACRO_SRDF_FILES})
-  GENERATE_URDF_FILE(${it} "srdf")
+  CONFIGURE_FILE(${it}.xacro.in ${it}.xacro @ONLY)
+  SET(SRDF_FILENAME ${it}.srdf)
+  XACRO_ADD_XACRO_FILE(${PROJECT_BINARY_DIR}/${it}.xacro ${SRDF_FILENAME})
+  LIST(APPEND URDF_FILENAMES ${SRDF_FILENAME})
 endforeach(it)
 
-ADD_CUSTOM_TARGET (generate_urdf_file ALL DEPENDS ${ALL_GENERATED_URDF})
+ADD_CUSTOM_TARGET(URDF_FILES ALL DEPENDS ${URDF_FILENAMES})
 
 INSTALL(FILES
   ${CMAKE_BINARY_DIR}/room/kitchen_area.urdf

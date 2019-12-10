@@ -9,7 +9,7 @@
   <!-- Fridge Area -->
   <!--             -->
 
-  <macro name="fridge_block" params="block_pos block_rpy">
+  <xacro:macro name="fridge_block" params="block_pos block_rpy">
 
     <counter parent="fridge_block"
       name="counter_top_fridge"
@@ -83,13 +83,13 @@
       </visual>
     </link>
     
-  </macro>
+  </xacro:macro>
 
   <!--                  -->
   <!-- Fridge SRDF Area -->
   <!--                  -->
 
-  <macro name="fridge_block_srdf" params="block_pos block_rpy">
+  <xacro:macro name="fridge_block_srdf" params="block_pos block_rpy">
 
     <color_counter_srdf name="counter_bottom_fridge" size_x="0.575" size_y="0.6" size_z="0.03" />
 
@@ -101,7 +101,7 @@
 
     <fridge_srdf name="fridge" />
 
-  </macro>
+  </xacro:macro>
 
 
 </robot>

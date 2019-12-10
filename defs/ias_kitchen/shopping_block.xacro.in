@@ -9,7 +9,7 @@
   <!-- Shopping Area -->
   <!--               -->
 
-  <macro name="shopping_block" params="name parent block_pos block_rpy">
+  <xacro:macro name="shopping_block" params="name parent block_pos block_rpy">
 
     <rack_side parent="${name}_shopping_block"
       name="${name}_side_rack"
@@ -67,6 +67,6 @@
       </visual>
     </link>
     
-  </macro>
+  </xacro:macro>
 
 </robot>

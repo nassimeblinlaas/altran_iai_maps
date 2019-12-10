@@ -13,7 +13,7 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
     <!-- Table -->
     <!--       -->
     
-    <macro name="small_table" params="name parent block_pos block_rpy material">
+    <xacro:macro name="small_table" params="name parent block_pos block_rpy material">
       
       <color_counter parent="${name}_table"
       name="${name}_table_top"
@@ -153,7 +153,7 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
             </visual>
           </link>
           
-        </macro>
+        </xacro:macro>
         
       </robot>
       

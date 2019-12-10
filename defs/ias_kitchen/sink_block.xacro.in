@@ -5,7 +5,7 @@
        xmlns:xacro="http://www.ros.org/wiki/xacro"
        name="sink_block">
 
-  <macro name="sink_block" params="block_pos block_rpy">
+  <xacro:macro name="sink_block" params="block_pos block_rpy">
 
     <!--           -->
     <!-- Sink Area -->
@@ -127,9 +127,9 @@
       </visual>
     </link>
   
-  </macro>
+  </xacro:macro>
 
-  <macro name="sink_block_srdf" params="block_pos block_rpy">
+  <xacro:macro name="sink_block_srdf" params="block_pos block_rpy">
     <color_counter_srdf
       name="white_counter_top_sink"
       size_x="0.58" size_y="2.06" size_z="0.002"
@@ -160,6 +160,6 @@
       size_x="0.58" size_y="0.6" size_z="0.14"
       />
 
-  </macro>
+  </xacro:macro>
 
 </robot>

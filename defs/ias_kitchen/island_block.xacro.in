@@ -9,7 +9,7 @@
   <!-- Island Area -->
   <!--             -->
 
-  <macro name="island_block" params="block_pos block_rpy">
+  <xacro:macro name="island_block" params="block_pos block_rpy">
 
     <joint name="island_block_stove_joint" type="fixed">
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -151,6 +151,6 @@
       </visual>
     </link>
 
-  </macro>
+  </xacro:macro>
   
 </robot>

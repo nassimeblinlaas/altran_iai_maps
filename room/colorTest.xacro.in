@@ -15,7 +15,7 @@
  
 
  <!-- macro for walls -->
- <macro name="wall" params="name xyz sxyz material">
+ <xacro:macro name="wall" params="name xyz sxyz material">
    
    <joint name="${name}_joint" type="fixed">
      <origin rpy="0 0 0" xyz="${xyz}"/>
@@ -45,6 +45,6 @@
      <static>true</static>
      <material>${material}</material>
    </gazebo>
- </macro>
+ </xacro:macro>
  
 </robot>

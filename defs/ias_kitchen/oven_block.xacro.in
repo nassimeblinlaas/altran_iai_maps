@@ -9,7 +9,7 @@
   <!-- Oven Area -->
   <!--           -->
 
-  <macro name="oven_block" params="block_pos block_rpy">
+  <xacro:macro name="oven_block" params="block_pos block_rpy">
   
     <counter parent="oven_block"
       name="counter_top_oven"
@@ -72,6 +72,6 @@
       </visual>
     </link>
   
-  </macro>
+  </xacro:macro>
 
 </robot>
