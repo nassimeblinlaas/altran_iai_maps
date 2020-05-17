@@ -42,6 +42,7 @@ set(XACRO_FILES
   room/floor_with_bar
   room/table
   room/table_with_pillar
+  room/ville1
   )
 
 SET(XACRO_SRDF_FILES
@@ -74,6 +75,7 @@ INSTALL(FILES
   ${CMAKE_BINARY_DIR}/room/floor_with_bar.urdf
   ${CMAKE_BINARY_DIR}/room/table.urdf
   ${CMAKE_BINARY_DIR}/room/table_with_pillar.urdf
+  ${CMAKE_BINARY_DIR}/room/ville1.urdf
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/urdf
   )
 
@@ -115,6 +117,11 @@ INSTALL(FILES
   Media/materials/textures/sink.png
   Media/materials/textures/mittig_neben_roboterplakat.png
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/Media/materials/textures
+)
+
+INSTALL(FILES
+  Media/models/meshes/ville1.stl
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/Media/models/meshes
 )
 
 INSTALL(FILES
